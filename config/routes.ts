@@ -35,6 +35,10 @@ export default [
     component: './MerchantList',
   },
   {
+    path: '/merchants/:id',
+    component: './MerchantList/MerchantDetail',
+  },
+  {
     path: '/retailInvestors',
     name: '散户列表',
     icon: 'laptop',

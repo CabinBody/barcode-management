@@ -21,21 +21,15 @@ export async function getInitialState(): Promise<{
   fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
   const fetchUserInfo = async () => {
-    // try {
-    //   const msg = await queryCurrentUser({
-    //     skipErrorHandler: true,
-    //   });
-    //   return msg.data;
-    // } catch (error) {
-    //   history.push(loginPath);
-    // }
-    // return undefined;
-
-    return {
-      username: 'test',
-      avatar: '',
-      userid: '',
+    try {
+      const msg = await queryCurrentUser({
+        skipErrorHandler: true,
+      });
+      return msg.data;
+    } catch (error) {
+      history.push(loginPath);
     }
+    return undefined;
   };
   // 如果不是登录页面，执行
   const { location } = history;
@@ -70,30 +64,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     onPageChange: () => {
       const { location } = history;
       // 如果没有登录，重定向到 login
-      // if (!initialState?.currentUser && location.pathname !== loginPath) {
-      //   history.push(loginPath);
-      // }
+      if (!initialState?.currentUser && location.pathname !== loginPath) {
+        history.push(loginPath);
+      }
     },
-    bgLayoutImgList: [
-      // {
-      //   src: 'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/D2LWSqNny4sAAAAAAAAAAAAAFl94AQBr',
-      //   left: 85,
-      //   bottom: 100,
-      //   height: '303px',
-      // },
-      // {
-      //   src: 'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/C2TWRpJpiC0AAAAAAAAAAAAAFl94AQBr',
-      //   bottom: -68,
-      //   right: -45,
-      //   height: '303px',
-      // },
-      // {
-      //   src: 'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/F6vSTbj8KpYAAAAAAAAAAAAAFl94AQBr',
-      //   bottom: 0,
-      //   left: 0,
-      //   width: '331px',
-      // },
-    ],
     links: isDev
       ? [
         <Link key="openapi" to="/umi/plugin/openapi" target="_blank">

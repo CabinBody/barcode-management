@@ -88,7 +88,7 @@ const UserComplaint: React.FC = () => {
         },
     ];
     return (
-        <PageContainer style={{ backgroundColor: 'white', height: '800px', margin: '10px' }}>
+        <PageContainer style={{ backgroundColor: 'white', height: 'auto',minHeight: '800px', margin: '10px' }}>
             <ProTable<API.UseComplaintInfo>
                 columns={columns}
                 actionRef={actionRef}

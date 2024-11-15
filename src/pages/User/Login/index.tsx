@@ -142,7 +142,7 @@ const Login: React.FC = () => {
           - {Settings.title}
         </title>
       </Helmet>
-      <Lang />
+      {/* <Lang /> */}
       <div
         style={{
           flex: '1',
@@ -168,30 +168,27 @@ const Login: React.FC = () => {
             activeKey={type}
             onChange={setType}
             centered
-            // items={[
-            //   {
-            //     key: 'account',
-            //     label: intl.formatMessage({
-            //       id: 'pages.login.accountLogin.tab',
-            //       defaultMessage: '账户密码登录',
-            //     }),
-            //   },
-            //   {
-            //     key: 'mobile',
-            //     label: intl.formatMessage({
-            //       id: 'pages.login.phoneLogin.tab',
-            //       defaultMessage: '手机号登录',
-            //     }),
-            //   },
-            // ]}
+          // items={[
+          //   {
+          //     key: 'account',
+          //     label: intl.formatMessage({
+          //       id: 'pages.login.accountLogin.tab',
+          //       defaultMessage: '账户密码登录',
+          //     }),
+          //   },
+          //   {
+          //     key: 'mobile',
+          //     label: intl.formatMessage({
+          //       id: 'pages.login.phoneLogin.tab',
+          //       defaultMessage: '手机号登录',
+          //     }),
+          //   },
+          // ]}
           />
 
           {status === 'error' && loginType === 'account' && (
             <LoginMessage
-              content={intl.formatMessage({
-                id: 'pages.login.accountLogin.errorMessage',
-                defaultMessage: '账户或密码错误(admin/ant.design)',
-              })}
+              content={'账户或密码错误(admin/hello@123)'}
             />
           )}
           {type === 'account' && (
@@ -224,10 +221,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined />,
                 }}
-                placeholder={intl.formatMessage({
-                  id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
-                })}
+                placeholder='密码: hello@123'
                 rules={[
                   {
                     required: true,

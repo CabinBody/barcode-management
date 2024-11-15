@@ -3,7 +3,7 @@ import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { PageContainer, ProTable } from '@ant-design/pro-components';
 import { Modal } from 'antd';
 import request from 'umi-request';
-import { set } from 'lodash';
+import { history } from 'umi';
 
 const MerchantList: React.FC = () => {
     const actionRef = useRef<ActionType>();
@@ -17,6 +17,9 @@ const MerchantList: React.FC = () => {
             title: 'ID',
             dataIndex: 'id',
             hideInSearch: true,
+            render: (text, record) => (
+                <a onClick={() => history.push(`/merchants/${record.id}`)}>{text}</a>
+                ),
         },
         {
             disable: true,
